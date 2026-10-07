@@ -1,13 +1,15 @@
 import HeroSectionPage from "./components/HeroSection";
-import HeaderPage from "./components/header";
-import Marquee from "./components/Marquee";
+import HighPriceProduct from "./components/products/HighPriceProduct";
 
 export default function Home() {
   return (
     <div>
-      <HeaderPage />
-      <Marquee />
+
+
+
       <HeroSectionPage />
+      <HighPriceProduct />
+
     </div>
   );
 }

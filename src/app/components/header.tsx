@@ -7,9 +7,9 @@ import CurrentDate from './CurrentDate';
 
 const Header = () => {
     return (
-        <header className="w-full border-b border-gray-200 bg-white shadow-sm sticky top-0 z-50">
+        <header className="w-full border-b border-gray-200 bg-white shadow-sm ">
 
-            <div className="container mx-auto relative flex min-h-[72px] items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto  flex min-h-[72px] items-center justify-between px-4 sm:px-6 lg:px-8">
 
 
                 <div className="flex items-center gap-3">

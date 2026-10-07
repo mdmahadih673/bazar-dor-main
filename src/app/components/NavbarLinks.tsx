@@ -31,9 +31,36 @@ const NavbarLinksPage = () => {
         getCategories();
     }, []);
 
+    if (loading) {
+        return (
+            <div className="sticky top-0 z-50 border-y border-gray-200 bg-white py-3 shadow-sm">
+                <div className="container mx-auto px-4">
+                    <div className="flex animate-pulse items-center gap-8 overflow-hidden">
+                        
+                        {Array.from({ length: 5 }).map((_, i) => (
+                            <div key={i} className="flex items-center gap-2 whitespace-nowrap">
+                                
+                                <div className="h-6 w-6 rounded-full bg-gray-200" />
+
+                                
+                                <div className="h-4 w-24 rounded bg-gray-200" />
+
+                               
+                                <div className="h-4 w-20 rounded bg-gray-200" />
+
+                                
+                                <div className="h-4 w-12 rounded bg-gray-200" />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="ml-8 sm:px-6 lg:px-8">
-            <div className="flex w-full container mx-auto items-center sticky top-0 gap-4 border-b border-gray-100 bg-white py-2 text-sm font-medium text-gray-700 shadow-sm sm:gap-6 sm:py-3 sm:text-base">
+            <div className="flex w-full container mx-auto items-center gap-4 border-b border-gray-100 bg-white py-2 text-sm font-medium text-gray-700 shadow-sm sm:gap-6 sm:py-3 sm:text-base">
                 <Link href="/" className="transition hover:text-red-600">
                     হোম
                 </Link>

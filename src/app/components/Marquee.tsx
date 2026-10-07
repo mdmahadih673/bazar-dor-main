@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import MarqueeText from "react-marquee-text";
 import "react-marquee-text/dist/styles.css";
 
-interface Iproduct {
+export interface Iproduct {
     id: number
     nameBn: string,
     today: number
@@ -44,54 +44,80 @@ const Marquee = () => {
         fetchData()
     }, []);
 
-    if (loading) return <p className="p-4">লোড হচ্ছে...</p>;
+    if (loading) {
+        return (
+            <div className="sticky top-0 z-50 border-y border-gray-200 bg-white py-3 shadow-sm">
+                <div className="container mx-auto px-4">
+                    <div className="flex animate-pulse items-center gap-8 overflow-hidden">
+                        
+                        {Array.from({ length: 5 }).map((_, i) => (
+                            <div key={i} className="flex items-center gap-2 whitespace-nowrap">
+                                
+                                <div className="h-6 w-6 rounded-full bg-gray-200" />
+
+                               
+                                <div className="h-4 w-24 rounded bg-gray-200" />
+
+                                
+                                <div className="h-4 w-20 rounded bg-gray-200" />
+
+                                
+                                <div className="h-4 w-12 rounded bg-gray-200" />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
 
 
 
 
     return (
+        <>
+            <div className="sticky top-0 z-50 border-y border-gray-200 bg-white py-3 shadow-sm">
+                <div className="container mx-auto overflow-hidden">
+                    <MarqueeText direction="right" duration={10} >
+                        {products.map((product) => (
+                            <div
+                                className="flex items-center gap-2 text-sm font-medium"
+                                key={product.id}>
 
-        <div className="overflow-hidden  bg-white border-y border-gray-200 py-3">
-            <div className="flex container mx-auto animate-marquee whitespace-nowrap gap-8">
-                <MarqueeText direction="right" duration={10} >
-                    {products.map((product) => (
-                        <div
-                            className="flex items-center gap-2 text-sm font-medium"
-                            key={product.id}>
-
-                            <span className="text-lg">
-                                {product.image || product.categoryIcon}
-                            </span>
-
-                            <span className="text-gray-800">{product.nameBn}
-
-                            </span>
-
-                            <span className="text-gray-900 font-bold">{product.today}টাকা/{product.unit}
-
-                            </span>
-
-                            {product.change.dir === 'up' && (
-                                <span className="text-green-600 font-semibold"  >▲{product.change.pct}%
+                                <span className="text-lg">
+                                    {product.image || product.categoryIcon}
                                 </span>
-                            )}
-                            {product.change.dir === 'down' && (
-                                <span className="text-red-600 font-semibold">▼{Math.abs(product.change.pct)}%
-                                </span>
-                            )};
-                            {product.change.dir === 'flat' && (
 
-                                <span className="text-gray-500 font-semibold">-0%
-                                </span>
-                            )}
-                        </div>
-                    ))}
+                                <span className="text-gray-800">{product.nameBn}
 
-                </MarqueeText>
+                                </span>
+
+                                <span className="text-gray-900 font-bold">{product.today}টাকা/{product.unit}
+
+                                </span>
+
+                                {product.change.dir === 'up' && (
+                                    <span className="text-green-600 font-semibold"  >▲{product.change.pct}%
+                                    </span>
+                                )}
+                                {product.change.dir === 'down' && (
+                                    <span className="text-red-600 font-semibold">▼{Math.abs(product.change.pct)}%
+                                    </span>
+                                )};
+                                {product.change.dir === 'flat' && (
+
+                                    <span className="text-gray-500 font-semibold">-0%
+                                    </span>
+                                )}
+                            </div>
+                        ))}
+
+                    </MarqueeText>
+                </div>
             </div>
-
-        </div>
+            
+        </>
     );
 };
 
