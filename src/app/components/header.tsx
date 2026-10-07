@@ -1,54 +1,59 @@
-import Image from "next/image";
-import logo from "@/assets/logo-icon.png";
-import Link from "next/link";
-import ButtonPage from "./Button";
-import NavbarLinksPage from "./NavbarLinks";
+import Image from 'next/image';
+import Link from 'next/link';
+import logo from '@/assets/logo-icon.png'
+import ButtonsPage from './Button';
+import NavbarLinksPage from './NavbarLinks';
 
-const HeaderPage = () => {
+
+const Header = () => {
     const date = new Date().toLocaleDateString("bn-BD", {
         dateStyle: "full",
     });
-
     return (
-        <header className="w-full border-b  border-gray-200 bg-white shadow-sm">
-            <div className="container mx-auto relative flex min-h-[72px] items-center px-4">
+        <header className="w-full border-b border-gray-200 bg-white shadow-sm sticky top-0 z-50">
 
-                {/* Center Logo + Website Info */}
-                <div className="absolute  flex -translate-x-1/2 items-center gap-3">
+            <div className="container mx-auto relative flex min-h-[72px] items-center justify-between px-4 sm:px-6 lg:px-8">
 
-                    <div className="flex h-10 w-10 items-center  overflow-hidden rounded-xl">
-                        <Link href={'/'}>
+
+                <div className="flex items-center gap-3">
+                    <Link href={'/'} className="flex-shrink-0">
+                        <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-green-50">
 
                             <Image
                                 src={logo}
-                                alt="Bangla News 24 Logo"
+                                alt="বাজার দর Logo"
                                 width={40}
                                 height={40}
-                                className="h-10 w-10 object-contain"
+                                className="h-10 w-10 object-contain p-1"
                                 priority
                             />
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
 
-                    <div className="leading-tight">
-                        <h1 className="text-xl font-bold tracking-tight text-red-700 sm:text-2xl">
-                            Bangla News 24
-                        </h1>
-
-                        <p className="mt-1 text-[10px] text-gray-500 sm:text-xs">
-                            {date}
-                        </p>
-                    </div>
-
+                    <Link href={'/'}>
+                        <div className="leading-tight">
+                            <h1 className="text-xl font-bold tracking-tight text-green-700 sm:text-2xl">
+                                বাজার দর
+                            </h1>
+                            <p className="mt-0.5 text-[10px] font-medium text-gray-500 sm:text-xs">
+                                {date}
+                            </p>
+                        </div>
+                    </Link>
                 </div>
 
-                {/* Right Side Buttons */}
-                <ButtonPage />
+                {/* Right Side: Buttons */}
+                <div className="flex items-center gap-2 sm:gap-4">
 
+                    {/* Sign In Button */}
+                    <ButtonsPage />
+
+                </div>
             </div>
+
             <NavbarLinksPage />
         </header>
     );
 };
 
-export default HeaderPage;
+export default Header;
