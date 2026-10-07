@@ -3,12 +3,9 @@ import Link from 'next/link';
 import logo from '@/assets/logo-icon.png'
 import ButtonsPage from './Button';
 import NavbarLinksPage from './NavbarLinks';
-
+import CurrentDate from './CurrentDate';
 
 const Header = () => {
-    const date = new Date().toLocaleDateString("bn-BD", {
-        dateStyle: "full",
-    });
     return (
         <header className="w-full border-b border-gray-200 bg-white shadow-sm sticky top-0 z-50">
 
@@ -16,7 +13,7 @@ const Header = () => {
 
 
                 <div className="flex items-center gap-3">
-                    <Link href={'/'} className="flex-shrink-0">
+                    <Link href={'/'} className="shrink-0">
                         <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-green-50">
 
                             <Image
@@ -36,16 +33,16 @@ const Header = () => {
                                 বাজার দর
                             </h1>
                             <p className="mt-0.5 text-[10px] font-medium text-gray-500 sm:text-xs">
-                                {date}
+                                <CurrentDate />
                             </p>
                         </div>
                     </Link>
                 </div>
 
-                {/* Right Side: Buttons */}
+                
                 <div className="flex items-center gap-2 sm:gap-4">
 
-                    {/* Sign In Button */}
+                   
                     <ButtonsPage />
 
                 </div>

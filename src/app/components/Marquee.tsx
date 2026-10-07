@@ -52,26 +52,38 @@ const Marquee = () => {
 
     return (
 
-        <div className="overflow-hidden container mx-auto bg-white border-y border-gray-200 py-3">
-            <div className="flex animate-marquee whitespace-nowrap gap-8">
+        <div className="overflow-hidden  bg-white border-y border-gray-200 py-3">
+            <div className="flex container mx-auto animate-marquee whitespace-nowrap gap-8">
                 <MarqueeText direction="right" duration={10} >
                     {products.map((product) => (
                         <div
                             className="flex items-center gap-2 text-sm font-medium"
                             key={product.id}>
+
                             <span className="text-lg">
                                 {product.image || product.categoryIcon}
                             </span>
-                            <span className="text-gray-800">{product.nameBn}</span>
-                            <span className="text-gray-900 font-bold">{product.today}টাকা/{product.unit}</span>
+
+                            <span className="text-gray-800">{product.nameBn}
+
+                            </span>
+
+                            <span className="text-gray-900 font-bold">{product.today}টাকা/{product.unit}
+
+                            </span>
+
                             {product.change.dir === 'up' && (
-                                <span className="text-green-600 font-semibold"  >▲{product.change.pct}%</span>
+                                <span className="text-green-600 font-semibold"  >▲{product.change.pct}%
+                                </span>
                             )}
                             {product.change.dir === 'down' && (
-                                <span className="text-red-600 font-semibold">▼{Math.abs(product.change.pct)}% </span>
+                                <span className="text-red-600 font-semibold">▼{Math.abs(product.change.pct)}%
+                                </span>
                             )};
                             {product.change.dir === 'flat' && (
-                                <span className="text-gray-500 font-semibold">-0%</span>
+
+                                <span className="text-gray-500 font-semibold">-0%
+                                </span>
                             )}
                         </div>
                     ))}
