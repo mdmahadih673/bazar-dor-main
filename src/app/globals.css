@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
-@import "@heroui/styles"; 
+@import "@heroui/styles";
 
-
+body {
+    background-color: rgb(218, 217, 217);
+}
