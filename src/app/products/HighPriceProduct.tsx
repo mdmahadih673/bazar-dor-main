@@ -16,7 +16,7 @@ const HighPriceProduct = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch('https://api.api-store.workers.dev/api/bazardor/products');
+                const res = await fetch('https://api.abcz.workers.dev/api/bazardor/products');
                 const allData = await res.json();
                 setProducts(allData);
 

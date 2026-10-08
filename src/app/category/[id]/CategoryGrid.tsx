@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import ProductCard from '@/app/products/ProductCard';
 import { Iproduct } from '@/app/components/Marquee';
-import Link from 'next/link';
 
 export default function CategoryGrid({ products }: { products: Iproduct[] }) {
     const [sortBy, setSortBy] = useState('default');
