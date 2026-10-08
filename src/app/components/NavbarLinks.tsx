@@ -65,7 +65,7 @@ const NavbarLinksPage = () => {
                     হোম
                 </Link>
 
-                {!loading && categories.map((category: Category) => (
+                {!loading && categories.map((category) => (
                     <Link
                         key={category.slug}
                         href={`/category/${category.slug}`}

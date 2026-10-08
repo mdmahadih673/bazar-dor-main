@@ -3,13 +3,15 @@
 import { useEffect, useState } from "react";
 
 const CurrentDate = () => {
-    const [date, setDate] = useState("");
+    const [date, setDate] = useState("তারিখ লোড হচ্ছে...");
 
     useEffect(() => {
         const updateDate = () => {
-            setDate(new Date().toLocaleDateString("bn-BD", {
-                dateStyle: "full",
-            }));
+            setDate(
+                new Date().toLocaleDateString("bn-BD", {
+                    dateStyle: "full",
+                })
+            );
         };
 
         updateDate();
