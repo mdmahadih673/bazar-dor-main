@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import { Iproduct } from "../Marquee";
+import { Iproduct } from "../components/Marquee";
 
 
 

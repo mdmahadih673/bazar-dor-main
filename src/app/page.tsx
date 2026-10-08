@@ -1,5 +1,5 @@
 import HeroSectionPage from "./components/HeroSection";
-import HighPriceProduct from "./components/products/HighPriceProduct";
+import HighPriceProduct from "./products/HighPriceProduct";
 
 export default function Home() {
   return (

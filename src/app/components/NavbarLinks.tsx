@@ -67,8 +67,8 @@ const NavbarLinksPage = () => {
 
                 {!loading && categories.map((category: Category) => (
                     <Link
-                        key={category.nameBn}
-                        href={`/category/${category.nameBn}`}
+                        key={category.slug}
+                        href={`/category/${category.slug}`}
                         className="transition hover:text-red-600"
                     >
                         {category.nameBn}

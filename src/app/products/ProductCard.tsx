@@ -1,4 +1,4 @@
-import { Iproduct } from "../Marquee";
+import { Iproduct } from "../components/Marquee";
 
 const ProductCard = ({ product }: { product: Iproduct }) => {
     const isUp = product.change.dir === "up";
@@ -29,10 +29,10 @@ const ProductCard = ({ product }: { product: Iproduct }) => {
 
                 <span
                     className={`inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-semibold ${isUp
-                            ? "bg-red-50 text-red-600"
-                            : isDown
-                                ? "bg-green-50 text-green-600"
-                                : "bg-gray-100 text-gray-500"
+                        ? "bg-red-50 text-red-600"
+                        : isDown
+                            ? "bg-green-50 text-green-600"
+                            : "bg-gray-100 text-gray-500"
                         }`}
                 >
                     {isUp && "▲"}
