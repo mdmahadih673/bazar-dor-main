@@ -51,7 +51,7 @@ const ProductDetails = async ({
 
   return (
     <div className="container mx-auto px-4 py-8 space-y-6 bg-gray-50 min-h-screen">
-      {/* ব্রেডক্রাম্ব */}
+      
       <nav className="text-sm text-gray-500 flex items-center gap-2">
         <Link href="/" className="hover:text-green-700">
           হোম
@@ -67,7 +67,7 @@ const ProductDetails = async ({
         <span className="text-gray-800 font-medium">{product.nameBn}</span>
       </nav>
 
-      {/* ১. পণ্যের প্রধান কার্ড */}
+      
       <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div className="flex items-center gap-4">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-50 text-4xl">
@@ -105,7 +105,7 @@ const ProductDetails = async ({
         </div>
       </div>
 
-      {/* ২. দামের সারসংক্ষেপ */}
+     
       <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
         <h2 className="text-lg font-bold text-gray-800 mb-4">
           দামের সারসংক্ষেপ
@@ -137,7 +137,7 @@ const ProductDetails = async ({
         </div>
       </div>
 
-      {/* ৩. বাজারভিত্তিক আজকের দাম */}
+      
       <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
         <h2 className="text-lg font-bold text-gray-800 mb-4">
           বাজারভিত্তিক আজকের দাম

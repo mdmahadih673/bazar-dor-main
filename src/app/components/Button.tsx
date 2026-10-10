@@ -1,27 +1,24 @@
 "use client";
 
-import { useSession } from "@/lib/auth-client";
+import { signOut, useSession } from "@/lib/auth-client";
 import { Avatar, Spinner } from "@heroui/react";
-import { signOut } from "better-auth/api";
 import Link from "next/link";
 import { toast } from "react-toastify";
 
-
-
 const ButtonsPage = () => {
-    const { data: session, isPending } = useSession()
-    const user = session?.user
+    const { data: session, isPending } = useSession();
+    const user = session?.user;
 
     const handleSignOut = async () => {
-        const result = await signOut()
+        const result = await signOut();
 
-        if (!result.success) {
-            toast.error("সাইন আউট ব্যর্থ হয়েছে")
-            return
+        if (result.error) {
+            toast.error(result.error.message || "সাইন আউট ব্যর্থ হয়েছে");
+            return;
         }
-        toast.success("সাইন আউট সফল হয়েছে");
-    }
 
+        toast.success("সাইন আউট সফল হয়েছে");
+    };
     if (isPending) {
         return (
             <div className="flex flex-col items-center gap-2">
@@ -34,9 +31,9 @@ const ButtonsPage = () => {
     return (
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
             {user ? (
-                <div className='flex items-center gap-2'>
-                    <div className="flex items-center gap-4">
-                        <Link href={'/profile'}>
+                <div className='flex items-center  gap-2'>
+                    <Link href={'/profile'}  >
+                        <div className="flex justify-center  items-center gap-4">
                             <Avatar>
                                 <Avatar.Image
                                     alt='blue'
@@ -44,10 +41,10 @@ const ButtonsPage = () => {
                                 />
                                 <Avatar.Fallback>B</Avatar.Fallback>
                             </Avatar>
-                        </Link>
 
-                    </div>
-                    {session?.user ? <span>Welcome,{session.user.name}</span> : null}
+                        </div>
+                        {session?.user ? <span className="text-green-700 font-bold" >Welcome, {session.user.name}</span> : null}
+                    </Link>
                     <button className='btn btn-error' onClick={handleSignOut}>Sign out</button>
 
                 </div>
