@@ -2,9 +2,21 @@ import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 
+const mongoUrl = process.env.BETTER_AUTH_MONGODB_URL?.trim();
 
+if (!mongoUrl) {
+    throw new Error(
+        "BETTER_AUTH_MONGODB_URL is missing. Add the full MongoDB connection URI to your deployment environment variables."
+    );
+}
 
-const client = new MongoClient(process.env.BETTER_AUTH_MONGODB_URL as string);
+if (!/^mongodb(?:\+srv)?:\/\//.test(mongoUrl)) {
+    throw new Error(
+        "BETTER_AUTH_MONGODB_URL must start with mongodb:// or mongodb+srv://."
+    );
+}
+
+const client = new MongoClient(mongoUrl);
 const db = client.db();
 
 export const auth = betterAuth({
